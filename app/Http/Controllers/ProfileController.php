@@ -14,9 +14,16 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
+    public function dashboard(Request $request): View
+    {
+        return view('dashboard', [
+            'user' => $request->user(),
+        ]);
+    }
+
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
+        return view('profile.profile', [
             'user' => $request->user(),
         ]);
     }
