@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DetailController extends Controller
 {
@@ -71,6 +72,15 @@ class DetailController extends Controller
         };
 
         return back();
+    }
+
+    // === Fitur Unduh Gambar  === //
+
+    public function unduh( $lokasiFile)
+    {
+        $imagePath = public_path('image/' . $lokasiFile);
+        return response()->download($imagePath);
+
     }
 
 

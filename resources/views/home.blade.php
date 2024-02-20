@@ -1,5 +1,36 @@
 @extends('layouts.main')
 @section('content')
+
+{{-- === notfikasi saat logout  --}}
+@if (session()->has('logout'))
+<div class="z-10 fixed right-0  bottom-0 mr-5 mb-5 sm:mr-6 sm:mb-6">
+    <div class="notification animate-slide-in transition-all duration-500 ease-in-out p-4 bg-white rounded-lg shadow-xl mx-auto max-w-sm relative m-10">
+        <div class="absolute -top-1 right-0">
+        <span class="relative flex h-5 w-5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-5 w-5 bg-red-500"></span>
+          </span>
+        </div>
+        <div class="flex items-center">
+        <span class="text-xs font-semibold uppercase m-1 py-1 mr-3 text-gray-500 absolute bottom-0 right-0"><?php
+            $tz = 'Asia/Jakarta';
+            $dt = new DateTime("now", new DateTimeZone($tz));
+            $timestamp = $dt->format('G:i:s');
+            echo " $timestamp";
+            ?></span>
+        <img class="h-12 w-12 rounded-full" alt="John Doe's avatar"
+            src="{{asset('assets/image/maskot.jpg')}}" />
+        <div class="relative ml-5 mb-2">
+            <h4 class="text-lg font-semibold leading-tight text-gray-900">There is a notification !!!</h4>
+            <p class="text-sm text-gray-600">{{session('logout')}}</p>
+        </div>
+    </div>
+    </div>
+</div>
+<audio id="notificationSound">
+    <source src="{{ asset('sound/notif.mp3') }}" type="audio/mpeg">
+</audio>
+@endif
 <div class="container mx-auto px-10">
      {{-- === header === --}}
     <div class="banner w-full">
@@ -67,7 +98,9 @@
         </div>
 
         {{-- === data image === --}}
+        @if ($dataImage->count() > 0)
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:px-10 px-4  py-5">
+
     @foreach ( $dataImage as $image )
     <div>
         {{-- <a href="{{ route('detail', ['fotoID' => $image->fotoID]) }}"> --}}
@@ -75,12 +108,26 @@
         <img class="object-cover  w-[1080px] rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl" src="{{ asset('image/' . $image->lokasiFile) }}"  alt="{{$image->judulFoto}}"></a>
     </div>
     @endforeach
+
 </div>
+@else
+<div class="container mx-auto">
+    <div class="flex flex-col justify-center items-center">
+        <div class="image ">
+            <img class="w-96" src="{{asset('assets/image/503-Error-Service-Unavailable-v1.svg')}}">
+        </div>
+        <div class="text  font-semibold text-2xl text-center mb-10 ">
+            Image not yet available on the server <br> <span class="text-red-500">please login and upload the image</span>
+        </div>
+    </div>
+</div>
+    @endif
 
     </div>
     </div>
 </div>
 @endsection
+
 
 
 

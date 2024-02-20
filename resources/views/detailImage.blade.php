@@ -17,8 +17,8 @@
                 <div class="md:flex items-center -mx-10">
                     <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
                         <div class="relative">
-                            <img src="{{ asset('image/'.$dataImage->lokasiFile) }}" class="w-full relative z-10" alt="">
-                            <div class="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
+                            <a href="{{ route('detailImage.unduh',$dataImage->lokasiFile) }}" target="_blank" class="z-10 absolute px-5 bg-red-500 text-white rounded-full py-2 mb-10 m-5 hover:bg-gray-400 shadow-md">Unduh Gambar</a>
+                            <img src="{{ asset('image/'.$dataImage->lokasiFile) }}" class="w-full rounded-xl z-1 relative z-1" alt="">
                         </div>
                     </div>
 

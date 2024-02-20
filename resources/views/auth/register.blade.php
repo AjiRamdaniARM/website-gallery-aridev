@@ -4,7 +4,7 @@
     <div class="container mx-auto py-20">
         <div class="flex flex-wrap justify-center items-center gap-20">
         {{-- image --}}
-        <div class="image">
+        <div class="grup">
             <div class="image-register p-48 px-40 lg:p-64 rounded-xl" aria-label="CyberPunk"></div>
         </div>
         {{-- akhir image --}}

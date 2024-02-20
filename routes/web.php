@@ -31,6 +31,8 @@ Route::get('/dashboard', function () {
 // === Detail Image == //
 Route::get('/detailImage/{fotoID}/{id}',[DetailController::class, 'index'])->name('detail');
 
+Route::get('detailImage/{lokasiFile}', [DetailController::class, 'unduh'])->name('detailImage.unduh');
+
 
 // === AUTH LOGIN & REGISTER ===
 Route::middleware('auth')->group(function () {
@@ -38,9 +40,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/detailImage/{fotoID}/{id}',[DetailController::class, 'komentar']);
     Route::post('/like', [DetailController::class, 'like'])->name('like');
     // === Route image & upload == //
-    Route::get('/dataImage', [ImageController::class, 'index'])->name('image');
+    Route::get('/dataImage',[ImageController::class, 'index'])->name('image');
     Route::get('/upload', [UploadController::class, 'index'])->name('upload');
     Route::post('/upload', [UploadController::class, 'store']);
+    Route::delete('dataImage/{fotoID}', [ImageController::class, 'delete'])->name('dataImage.delete');
+    Route::get('detailImageEdit/{fotoID}/{id}', [ImageController::class, 'edit'])->name('edit');
+    Route::post('dataImage/{fotoID}', [ImageController::class, 'update'])->name('dataImage.update');
     // === Route profile == //
     Route::get('/akun', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

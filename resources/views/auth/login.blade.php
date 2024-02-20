@@ -2,7 +2,7 @@
     <!-- Session Status -->
         <div class="container mx-auto py-20">
             <div class="flex flex-wrap justify-center items-center text-start gap-10 lg:gap-20">
-                <div class="image">
+                <div class="grup">
                     <div class="image-login p-48 px-40 lg:p-64 rounded-xl" aria-label="CyberPunk"></div>
                 </div>
                 <div class="form">

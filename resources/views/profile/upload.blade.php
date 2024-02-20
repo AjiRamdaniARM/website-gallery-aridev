@@ -50,7 +50,6 @@
 		</div>
         <form action="{{ route('upload')}}" method="POST"  enctype="multipart/form-data">
             @csrf
-
                     <div class="grid grid-cols-1 space-y-2">
                         <label class="text-sm font-bold text-gray-500 tracking-wide">Judul gambar</label>
                         <input class="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500" name="judulFoto" type="text" id="judulFoto" required >
@@ -95,10 +94,25 @@
     <div class="max-w-xs container bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl">
     <div>
       <span class="text-white text-xs font-bold rounded-lg bg-red-500 inline-block mt-4 ml-4 py-1.5 px-4 cursor-pointer">kategori image</span>
-      <h1 class="text-2xl mt-2 ml-4 font-bold text-gray-800 cursor-pointer hover:text-gray-900 transition duration-100">judul foto ( max 50 )</h1>
-      <p class="ml-4 mt-1 mb-2 text-gray-700 hover:underline cursor-pointer">deskripsi foto ( max 100 )</p>
+      @if ($errors->has('lokasiFile'))
+    <h1 class="text-2xl mt-2 ml-4 font-bold text-red-500 cursor-pointer  transition duration-100">{{ $errors->first('judulFoto') }}</h1>
+    @else
+    <h1 class="text-2xl mt-2 ml-4 font-bold text-gray-800 cursor-pointer hover:text-gray-900 transition duration-100">judul foto ( max 50 )</h1>
+    @endif
+    @if ($errors->has('deskripsiFoto'))
+    <p class="ml-4 mt-1 mb-2 text-gray-700 hover:underline cursor-pointer">{{$message}}</p>
+    @endif
+      <p class="ml-4 mt-1 mb-2 text-gray-700 hover:underline cursor-pointer">deskripsi foto ( max 255 )</p>
     </div>
-    <div class="bg-gray-300 p-[100px] "></div>
+    <div class="bg-gray-300 p-[100px] ">
+        @if ($errors->has('lokasiFile'))
+        <h1 class="text-red-500">{{ $errors->first('lokasiFile') }}</h1>
+    @else
+        <h1 class="w-68">Format File (JPG, JPEG, PNG & SVG)</h1>
+        <p class="w-72">Size Image (max: 2MB)</p>
+    @endif
+
+    </div>
     <div class="flex p-4 justify-between">
       <div class="flex items-center space-x-2">
         <svg fill="#ff0000" width="20"" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ff0000 ">
