@@ -33,26 +33,7 @@
     </div>
      {{-- === akhir header === --}}
 
-     {{-- === menghitung data === --}}
-    <div class="container mx-auto py-5">
-        <div class="flex  justify-center items-center lg:gap-10 gap-5">
-            <div class="count-image text-center">
-                <h1 class="font-bold lg:text-3xl text-2xl">{{ $column }}K</h1>
-                <p class="text-[10px] text-gray-400">All Image</p>
-            </div>
-            <hr class="h-10 w-[2px] bg-gray-500">
-            <div class="count-image text-center">
-                <h1 class="font-bold lg:text-3xl text-2xl">{{ $columnUser }}K</h1>
-                <p class="text-[10px] text-gray-400">Active User</p>
-            </div>
-            <hr class="h-10 w-[2px] bg-gray-500">
-            <div class="count-image text-center">
-                <h1 class="font-bold lg:text-3xl text-2xl">{{ $columnCategory }}K</h1>
-                <p class="text-[10px] text-gray-400">Active Category</p>
-            </div>
-        </div>
-    </div>
- {{-- === akhir menghitung data === --}}
+    
 
     <div class="container py-3 mx-auto ">
         <div class="content">
