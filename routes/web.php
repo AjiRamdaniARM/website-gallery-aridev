@@ -12,15 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    // === dapatkan data dari model ==  //
-    $user = User::all();
-    $category = category::all();
-    $dataImage = Foto::all();
-     // === menghitung data dari model == //
-    $column = count($dataImage);
-    $columnUser = count($user);
-    $columnCategory = count($category);
-    return view('home',compact('dataImage','category', 'column', 'columnUser','columnCategory'));
+    return view('home');
 });
 
 // === Dashboard == //
