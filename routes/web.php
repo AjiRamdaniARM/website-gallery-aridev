@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('home');
+    $category = category::all();
+    $dataImage = Foto::all();
+    return view('home', compact('category', 'dataImage'));
 });
 
 // === Dashboard == //
