@@ -16,8 +16,7 @@
     type="text/javascript"
     src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     <script src="{{asset('assets/js/sistem1.js')}}"></script>
-      <!-- Scripts -->
-      @vite(['resources/css/app.css', 'resources/js/app.js'])
+  
 </head>
 <body>
     {{-- ===  navbar ==  --}}
